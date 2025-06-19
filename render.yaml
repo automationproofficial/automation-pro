@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: n8n-automation
+    env: docker
+    plan: free
+    autoDeploy: false
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: N8N_BASIC_AUTH_USER
+        value: yourusername
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: yoursecurepassword
+      - key: N8N_HOST
+        value: n8n.onrender.com
+      - key: N8N_PORT
+        value: 5678
+      - key: WEBHOOK_TUNNEL_URL
+        value: https://n8n.onrender.com
+      - key: GENERIC_TIMEZONE
+        value: America/Los_Angeles
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: your-postgres-hostname
+      - key: DB_POSTGRESDB_PORT
+        value: 5432
+      - key: DB_POSTGRESDB_DATABASE
+        value: yourdbname
+      - key: DB_POSTGRESDB_USER
+        value: yourdbuser
+      - key: DB_POSTGRESDB_PASSWORD
+        value: yourdbpassword
+
+databases:
+  - name: n8n-postgres
+    plan: free
